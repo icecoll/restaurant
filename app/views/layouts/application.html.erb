@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>Andy's Restaurant</title>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+      <script type="text/javascript">
+          $(".start-slide").click(function(){
+              $("#myCarousel").carousel('cycle');
+          });
+      </script>
+    </head>
+
+    <body>
+        <div id="container">
+          <header>
+            <nav>
+              <ul id="nav">
+                <li><a href="#" class="current">主页</a></li>
+                <li><%= link_to "外卖",delivery_index_path %></li>
+                <li><%= link_to "美食墙",gallery_index_path %></li>
+                <li><%= link_to "留言",message_index_path %></li>
+                <li><%= link_to "购物车",cart_index_path %></li>
+                <li>
+                  <% if current_user %>
+                    <%= link_to "个人中心",userhome_index_path %>
+                    <%= current_user.nickname%>
+                  <% else %>
+                    <%= link_to "注册/登录",new_user_session_path%>
+                  <% end %>
+                </li>
+              </ul>
+            </nav>
+            <hgroup class="intro">
+              <h1 class="title">Andy's restaurant</h1>
+              <h3 class="tagline">welcome</h3>
+            </hgroup>
+
+            <div class="reservations"><br />
+              <span class="reservations-title">热线:</span>
+              <hr class="hr-solid" />
+              <span style="font-family: 'Lobster13Regular', cursive;">18370992726</span>
+              <hr class="hr-solid" />
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+          </header>
+
+          <div class="wrapper">
+            <div class="border"></div>
+            <%= yield %>
+          </div>
+
+          <div class="border2"></div>
+          <footer>
+            <span class="copyright">
+              <span class="left"><br />&copy; Copyright 2015 - All Rights Reserved - <a href="#">Andy Li</a></span>
+              <span class="right"><br />Design by <a href="#">Madhav Patel</a>
+                <br />
+                <br />
+                <br />
+              </span>
+            </span>
+          </footer>
+
+          <br />
+        </div>
+    </body>
+</html>

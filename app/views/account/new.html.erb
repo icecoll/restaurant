@@ -1,0 +1,59 @@
+<article>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-heading"><%=link_to "登录",new_user_session_path%>/注册</div>
+        <div class="panel-body">
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= devise_error_messages! %>
+              <fieldset>
+              <div class="field">
+                <%= f.label "昵称" %><br />
+                <%= f.text_field :nickname, autofocus: true %>
+              </div>
+
+              <div class="field">
+                <%= f.label "电话" %><br />
+                <%= f.phone_field :phone, autocomplete: "off" %>
+              </div>
+
+              <div class="field">
+                <%= f.label "地址" %><br />
+                <%= f.text_field :address, autocomplete: "off" %>
+              </div>
+
+              <div class="field">
+                <%= f.label "密码" %>
+                <% if @minimum_password_length %>
+                    <em>至少<%= @minimum_password_length %>位数字或字母组成</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div>
+
+              <div class="field">
+                <%= f.label "确认密码" %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              </div>
+              <div class="clearfix"></div><br/>
+              <div class="field" align="center">
+                <button type="submit" class="button">立即注册</button>
+              </div>
+              </fieldset>
+          <% end %>
+        </div> <!--/panel body-->
+      </div>
+    </div>
+  </div>
+</article>
+<aside class="sidebar">
+  <div >
+    <div class="panel panel-default">
+      <div class="panel-heading">其他方式登录</div>
+      <ul class="list-group">
+        <li class="list-group-item"><!%= link_to raw("QQ"),  user_omniauth_authorize_path(:qq_connect), class: "btn btn-default" %> <%= link_to raw("QQ"),  "#", class: "btn btn-default" %></li>
+        <li class="list-group-item"><!%= link_to raw("Github"),  user_omniauth_authorize_path(:github), class: "btn btn-default" %> <%= link_to raw("Github"),  "#", class: "btn btn-default" %></li>
+      </ul>
+    </div>
+  </div>
+</aside>

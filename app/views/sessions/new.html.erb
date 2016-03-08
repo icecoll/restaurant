@@ -1,0 +1,56 @@
+
+<article>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-heading">登录/<%= link_to "注册",new_user_registration_path%></div>
+          <div class="panel-body">
+            <% flash.each do |name, msg| %>
+                <% if msg.is_a?(String) %>
+                    <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %>">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+                    </div>
+                <% end %>
+            <% end %>
+
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-horizontal" ) do |f| %>
+                <fieldset>
+                  <div class="input-group input-group-lg">
+                    <%= f.phone_field :phone, autofocus: true , class: "form-control" , placeholder: "电话"  %>
+                  </div>
+                  <div class="clearfix"></div><br>
+
+                  <div class="input-group input-group-lg">
+
+                    <%= f.password_field :password, autocomplete: "off", class: "form-control" , placeholder: "密码" %>
+                  </div>
+                  <div class="clearfix"></div>
+
+                  <div class="input-prepend" align="center">
+                    <label class="remember" for="remember" >
+                      <%= f.check_box :remember_me %> 记住我
+                    </label>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div align="center">
+                    <button type="submit" class="button">登录</button>
+                  </div>
+                </fieldset>
+            <% end %>
+          </div> <!--/panel body-->
+        </div>
+      </div>
+    </div>
+</article>
+<aside class="sidebar">
+  <div >
+    <div class="panel panel-default">
+      <div class="panel-heading">其他方式登录</div>
+      <ul class="list-group">
+        <li class="list-group-item"><!%= link_to raw("QQ"),  user_omniauth_authorize_path(:qq_connect), class: "btn btn-default" %> <%= link_to raw("QQ"),  "#", class: "btn btn-default" %></li>
+        <li class="list-group-item"><!%= link_to raw("Github"),  user_omniauth_authorize_path(:github), class: "btn btn-default" %> <%= link_to raw("Github"),  "#", class: "btn btn-default" %></li>
+      </ul>
+    </div>
+  </div>
+</aside>
