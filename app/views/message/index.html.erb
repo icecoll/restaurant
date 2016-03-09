@@ -1,22 +1,16 @@
 
-  <article>
-    <h3>留言</h3>
-    <blockquote>很好,很好,good,good<span>~Lorem</span></blockquote>
-    <div class="border3"></div>
-    <blockquote>很好,很好,good,good<span>~Lorem</span></blockquote>
-    <div class="border3"></div>
-    <blockquote>很好,很好,good,good<span>~Lorem</span></blockquote>
-    <div class="border3"></div>
-    <blockquote>很好,很好,good,good<span>~Lorem</span></blockquote>
-    <div class="border3"></div>
-  </article>
-  <aside class="sidebar">
-    <h3>欢迎留言</h3>
-    <img src="images/home/1.jpg" width="280" alt="" />
-    <p>有任何问题或建议,欢迎给我们留言.<br>
+<article>
+  <h3>留言</h3>
+  <% @feedback_messages.each do |fm|%>
 
-    <div class="reservations">
-      <div style="margin-top:15px"> <a class="button" href="#" title="Email Us">我要留言</a> </div>
-    </div>
-  </aside>
+      <blockquote>
+        <p><%=fm.subject%></p>
+        <span>来自:<%=fm.user%>,<%=fm.created_at%></span>
+        <div class="border3"></div>
+      </blockquote>
+  <% end %>
+
+</article>
+
+<%= render "aside" %>
 

@@ -5,13 +5,15 @@ Rails.application.routes.draw do
                         sessions: :sessions,
                         # omniauth_callbacks: 'users/omniauth_callbacks'
                     }
+
   get 'cart/index'
 
   get 'userhome/index'
 
   get 'gallery/index'
 
-  get 'message/index'
+  #routes for feedback
+  resources :message
 
   get 'delivery/index'
 

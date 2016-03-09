@@ -1,0 +1,15 @@
+<article>
+  <h3>留言</h3>
+  <%= form_for(:feedback,url: message_index_path ) do |f| %>
+    <input type="hidden" name="feedback[user]" value="<%= current_user.id%>">
+    <%=f.label "主题"%><br/>
+    <%= f.text_field :subject %>
+    <br><br>
+    <%=f.label "内容"%><br/>
+    <%= f.text_area :content,size:"40x8"%>
+    <br><br>
+    <%= f.submit "提交",class:"button" %>
+  <% end %>
+</article>
+
+<%= render "aside" %>
