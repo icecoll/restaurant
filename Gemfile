@@ -26,6 +26,9 @@ gem "execjs"
 gem "omniauth"
 gem 'omniauth-github'
 
+#gem for active_adimi
+gem 'activeadmin', '~> 1.0.0.pre2'
+
 
 
 # Use jquery as the JavaScript library
