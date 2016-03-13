@@ -1,6 +1,7 @@
 class MessageController < ApplicationController
+
   def index
-    @feedback_messages=Feedback.paginate(:page => params[:page], :per_page => 1)
+    @feedback_messages=Feedback.page params[:page]
   end
 
   def new

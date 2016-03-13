@@ -14,7 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'will_paginate', '~> 3.0.5'
+gem 'kaminari'
 
 #js runtimes
 gem "therubyracer"
@@ -28,6 +28,8 @@ gem 'omniauth-github'
 
 #gem for active_adimi
 gem 'activeadmin', '~> 1.0.0.pre2'
+gem 'carrierwave'
+gem "rmagick"
 
 
 
