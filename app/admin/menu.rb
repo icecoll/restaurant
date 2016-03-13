@@ -14,10 +14,7 @@
   # end
   menu :priority => 2, :label => "菜单"
 
-  permit_params :name,:description,:price,:image
-
-  controller
-
+  permit_params :name,:price,:image,:description
 
 =begin
   index :as => :grid do |menu|
