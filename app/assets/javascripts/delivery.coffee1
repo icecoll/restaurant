@@ -1,0 +1,30 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+#$ ->
+#  $(".order_button").each ->
+#    $(this).click ->
+#      alert("aaa")
+#
+#  return false
+
+
+orderButtonToggle = ->
+  alert("bb")
+
+  $(this).toggle()
+  $(this).siblings().toggle()
+  return false
+
+
+orderFood = ->
+  alert("adfad")
+  url=$(this).attr("href").value;
+  $.ajax
+    url: url
+    type: "POST"
+    success: (res) ->
+      if res.code == 0
+        orderButtonToggle
+  return false

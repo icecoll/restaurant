@@ -17,7 +17,14 @@ Rails.application.routes.draw do
   #routes for feedback
   resources :message
 
-  get 'delivery/index'
+  resources :delivery do
+    member do
+      post :addToCart
+      post :removeFromCart
+    end
+  end
+
+  # get 'delivery/index'
 
   get 'welcome/index'
 
