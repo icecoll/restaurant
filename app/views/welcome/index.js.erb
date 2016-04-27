@@ -1,0 +1,13 @@
+//导航栏的点击效果切换
+$(function(){
+    $(".nav_link").each(function(){
+        $(this).click(function(){
+            $(".nav_link").each(function(){
+                if($(this).hasClass("current")){
+                    $(this).removeClass("current");
+                }
+            });
+            $(this).addClass("current");
+        })
+    })
+})

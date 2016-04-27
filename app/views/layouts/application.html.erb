@@ -18,11 +18,11 @@
           <header>
             <nav>
               <ul id="nav">
-                <li><%= link_to '主页',welcome_index_path,class='current'%></li>
-                <li><%= link_to '外卖',delivery_index_path %></li>
-                <li><%= link_to '美食墙',gallery_index_path %></li>
-                <li><%= link_to '留言',message_index_path %></li>
-                <li><%= link_to '购物车',cart_index_path %></li>
+                <li><%= link_to '主页',welcome_index_path,class: 'nav_link current'%></li>
+                <li><%= link_to '外卖',delivery_index_path,class: 'nav_link'%></li>
+                <li><%= link_to '美食墙',gallery_index_path,class: 'nav_link' %></li>
+                <li><%= link_to '留言',message_index_path,class: 'nav_link' %></li>
+                <li><%= link_to '购物车',cart_index_path,class: 'nav_link' %></li>
                 <li>
                   <% if current_user %>
                     <%= link_to "个人中心",userhome_index_path %>

@@ -28,9 +28,3 @@ function orderButtonToggle(obj){
   obj.toggle();
   obj.siblings().toggle();
 }
-
-
-function orderFood(e){
-
-  return false;
-}

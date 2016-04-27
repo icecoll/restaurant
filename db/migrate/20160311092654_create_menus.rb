@@ -8,4 +8,5 @@ class CreateMenus < ActiveRecord::Migration
       t.timestamps null: false
     end
   end
+  #TODO:alter the price column to t.decimal :price , precision: 8, scale: 2
 end
