@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :line_items
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users ,path: 'account', controllers: {
