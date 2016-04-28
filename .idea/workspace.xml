@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4601610d-dd26-47f1-89b3-0609b90110e9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/毕业设计初稿doc.doc" afterPath="$PROJECT_DIR$/doc/毕业设计初稿doc.doc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/menu.rb" afterPath="$PROJECT_DIR$/app/models/menu.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/resturant.iml" afterPath="$PROJECT_DIR$/.idea/resturant.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="4601610d-dd26-47f1-89b3-0609b90110e9" name="Default" comment="" />
     <ignored path="resturant.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -160,7 +152,7 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2049" />
+    <option name="x" value="683" />
     <option name="y" value="26" />
     <option name="width" value="683" />
     <option name="height" value="718" />
@@ -500,7 +492,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2049" y="26" width="683" height="718" extended-state="4" />
+    <frame x="683" y="26" width="683" height="718" extended-state="4" />
     <editor active="false" />
     <layout>
       <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31663686" sideWeight="0.48784193" order="7" side_tool="false" content_ui="tabs" />
