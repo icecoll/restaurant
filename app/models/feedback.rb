@@ -1,4 +1,4 @@
 class Feedback < ActiveRecord::Base
-  paginates_per 1
+  paginates_per 10
 
 end

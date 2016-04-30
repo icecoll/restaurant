@@ -1,7 +1,7 @@
 <article>
   <h3>留言</h3>
   <%= form_for(:feedback,url: message_index_path ) do |f| %>
-    <input type="hidden" name="feedback[user]" value="<%= current_user.id%>">
+    <input type="hidden" name="feedback[user]" value="<%= current_user ? current_user.id : nil%>">
     <%=f.label "主题"%><br/>
     <%= f.text_field :subject %>
     <br><br>

@@ -1,7 +1,7 @@
 class MessageController < ApplicationController
 
   def index
-    @feedback_messages=Feedback.page params[:page]
+    @feedback_messages=Feedback.order('created_at desc').page params[:page]
   end
 
   def new
@@ -10,7 +10,7 @@ class MessageController < ApplicationController
   def create
     @feedback_message = Feedback.new(feedback_params)
     @feedback_message.save
-    render index
+    redirect_to action: :index
   end
 
   private

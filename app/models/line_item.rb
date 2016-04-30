@@ -1,4 +1,4 @@
 class LineItem < ActiveRecord::Base
-  belongs_to :product
+  belongs_to :food
   belongs_to :cart
 end

@@ -9,14 +9,14 @@ Rails.application.routes.draw do
                         # omniauth_callbacks: 'users/omniauth_callbacks'
                     }
 
-  get 'cart/index'
-
   get 'userhome/index'
 
   get 'gallery/index'
 
   #routes for feedback
   resources :message
+
+  resources :cart
 
   resources :delivery do
     member do

@@ -5,7 +5,8 @@
 
       <blockquote>
         <p><%=fm.subject%></p>
-        <span>来自:<%=fm.user%>,<%=fm.created_at%></span>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=fm.content%></p>
+        <span>来自:<%=fm.user ? fm.user : '匿名顾客'%>,<%=fm.created_at%></span>
         <div class="border3"></div>
       </blockquote>
   <% end %>

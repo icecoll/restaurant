@@ -1,20 +1,20 @@
 
 <article class="menu">
 
-  <% @menu.each do |m|%>
+  <% @foods.each do |f|%>
       <div class="left">
-        <h3><%=m.name%>: $<%=m.price%></h3>
+        <h3><%=f.name%>: $<%=f.price%></h3>
       </div>
       <!--<div class="left star"><img src="images/star_full.png" class="noeffects" alt=""><img src="images/star_full.png" class="noeffects" alt=""><img src="images/star_full.png" class="noeffects" alt=""><img src="images/star_half_full.png" class="noeffects" alt=""><img src="images/star_empty.png" class="noeffects" alt=""></div>-->
       <div class="right menu-order">
-        <%=link_to '加入订单','#',class: 'button order_button add_to_cart',id: "#{m.id}"%>
-        <%=link_to '  移除  ','#',class: 'button order_button remove_from_cart',id: "#{m.id}",style: 'display:none'%>
+        <%= button_to '加入订单',line_items_path(:food_id => f.id),class: 'button order_button add_to_cart',id: "#{f.id}"%>
+        <%= button_to '  移除  ','#',class: 'button order_button remove_from_cart',id: "#{f.id}",style: 'display:none'%>
       </div>
-      <%= image_tag m.image_url(:thumb),class:"left clear item" %>
-      <p class="left"><%= m.description %></p>
+      <%= image_tag f.image_url(:thumb),class:"left clear item" %>
+      <p class="left"><%= f.description %></p>
       <div class="border3"></div>
   <% end %>
-  <%= paginate @menu %>
+  <%= paginate @foods %>
 </article>
 <aside class="sidebar">
   <h3>活动公告</h3>

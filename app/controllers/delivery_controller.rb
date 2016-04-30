@@ -1,6 +1,6 @@
 class DeliveryController < ApplicationController
   def index
-    @menu=Menu.page params[:page]
+    @foods=Food.page params[:page]
   end
 
   def addToCart
