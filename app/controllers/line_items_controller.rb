@@ -2,8 +2,7 @@ class LineItemsController < InheritedResources::Base
 
   def create
     @cart = current_cart
-    food = Food.find(params[:food_id])
-    @line_item = @cart.line_items.build(:food => food)
+    @line_item = @cart.add_food(params[:food_id])
 
     respond_to do |format|
       if @line_item.save
