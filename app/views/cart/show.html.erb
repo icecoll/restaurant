@@ -15,12 +15,13 @@
             <td><%= li.food.name %></td>
             <td><%= li.food.price %></td>
             <td><%= li.quantity %></td>
-            <td><%= li.food.price %></td>
+            <td><%= li.total_price %></td>
           </tr>
       <% end %>
     </tbody>
   </table>
-
+  <%= button_to '清空购物车',@cart , :method => :delete,
+    data: { confirm: '确认清空?'} %>
 
 </article>
 
@@ -41,7 +42,7 @@
     <div class="form-group">
       <label class="col-sm-5 control-label">总计</label>
       <div class="col-sm-7">
-        <label class="control-label">１０００</label>
+        <label class="control-label"><%= @cart.total_price %></label>
       </div>
     </div>
 

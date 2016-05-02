@@ -15,15 +15,14 @@
             <% end %>
 
             <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-horizontal" ) do |f| %>
-                <fieldset>
-                  <div class="input-group input-group-lg">
-                    <%= f.phone_field :phone, autofocus: true , class: "form-control" , placeholder: "电话"  %>
+                <fieldset style="text-align: center">
+                  <div class="input-group input-group-lg col-md-12" style="text-align: center">
+                    <%= f.phone_field :phone, autofocus: true , placeholder: "电话"  %>
                   </div>
                   <div class="clearfix"></div><br>
 
-                  <div class="input-group input-group-lg">
-
-                    <%= f.password_field :password, autocomplete: "off", class: "form-control" , placeholder: "密码" %>
+                  <div class="input-group input-group-lg col-md-12" style="text-align: center">
+                    <%= f.password_field :password, autocomplete: "off" , placeholder: "密码" %>
                   </div>
                   <div class="clearfix"></div>
 
