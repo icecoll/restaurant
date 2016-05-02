@@ -13,9 +13,9 @@
       <% @cart.line_items.each do |li|%>
           <tr>
             <td><%= li.food.name %></td>
-            <td><%= li.food.price %></td>
+            <td><%= number_to_currency(li.food.price, :unit=>'￥') %></td>
             <td><%= li.quantity %></td>
-            <td><%= li.total_price %></td>
+            <td><%= number_to_currency(li.total_price, :unit=>'￥') %></td>
           </tr>
       <% end %>
     </tbody>
@@ -42,13 +42,13 @@
     <div class="form-group">
       <label class="col-sm-5 control-label">总计</label>
       <div class="col-sm-7">
-        <label class="control-label"><%= @cart.total_price %></label>
+        <label class="control-label"><%= number_to_currency(@cart.total_price, :unit=>'￥') %></label>
       </div>
     </div>
 
       <div class="form-group">
         <div class="col-sm-offset-3 col-sm-9">
-          <button type="submit" class="button">立即下单</button>
+          <%= button_to '立即下单', new_order_path, :method => :get %>
         </div>
       </div>
   </form>
