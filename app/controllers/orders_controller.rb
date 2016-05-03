@@ -12,6 +12,24 @@ class OrdersController < InheritedResources::Base
     end
   end
 
+  def create
+    @order = Order.new(params[:order])
+    @order.add_line_items_from_cart(current_cart)
+
+    respond_to do |format|
+      if @order.save
+        Cart.destroy(session[:cart_id])
+        session[:cart_id] = nil
+
+        format.html { redirect_to(delivery_path, :notice =>
+          '下单成功')}
+      else
+        format.html {render :action => 'new'}
+      end
+
+    end
+  end
+
   private
 
     def order_params
