@@ -9,6 +9,7 @@ class CartController < ApplicationController
       logger.error '尝试访问无效的购物车'
       redirect_to root_path, :notice => '无效的购物车'
     else
+      @order = Order.new
       respond_to do |format|
         format.html # show.html.erb
       end

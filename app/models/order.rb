@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
  has_many :line_items, :dependent => :destroy
 
-  PAYMENT_TYPE = %w['餐到支付','支付宝支付']
+  PAYMENT_TYPE = ['餐到支付','支付宝支付']
   validates :name, :pay_type, :address, :phone, :presence => true
   validates :pay_type, :inclusion => PAYMENT_TYPE
 

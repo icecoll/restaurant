@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label '姓名' %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :address %><br>
+    <%= f.label '地址' %><br>
     <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br>
+    <%= f.label '手机号' %><br>
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :pay_type %><br>
-    <%= f.text_field :pay_type %>
+    <%= f.label '支付方式' %><br>
+    <%= f.select :pay_type, Order::PAYMENT_TYPE %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit '立即下单' %>
   </div>
 <% end %>

@@ -1,5 +1,5 @@
 
-<article>
+<article style="text-align: center">
   <table class="table">
     <thead>
       <tr>
@@ -22,10 +22,18 @@
   </table>
   <%= button_to '清空购物车',@cart , :method => :delete,
     data: { confirm: '确认清空?'} %>
+  <br/>
+  <br/>
+  <br/>
+  <div class="border2"></div>
+  <div style="text-align: center">
+    <%= render 'form' %>
+  </div>
 
 </article>
 
 <aside class="sidebar">
+
   <form class="form-horizontal">
       <div class="form-group">
         <label class="col-sm-5 control-label">送餐地址</label>

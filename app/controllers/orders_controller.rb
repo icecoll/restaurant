@@ -13,7 +13,7 @@ class OrdersController < InheritedResources::Base
   end
 
   def create
-    @order = Order.new(params[:order])
+    @order = Order.new(order_params)
     @order.add_line_items_from_cart(current_cart)
 
     respond_to do |format|
@@ -21,7 +21,7 @@ class OrdersController < InheritedResources::Base
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
 
-        format.html { redirect_to(delivery_path, :notice =>
+        format.html { redirect_to(root_path, :notice =>
           '下单成功')}
       else
         format.html {render :action => 'new'}
