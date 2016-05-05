@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :delivery do
     member do
+      get :who_bought
       post :addToCart
       post :removeFromCart
     end

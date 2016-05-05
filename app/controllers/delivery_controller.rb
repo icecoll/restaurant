@@ -3,6 +3,13 @@ class DeliveryController < ApplicationController
     @foods=Food.page params[:page]
   end
 
+  def who_bought
+    @food = Food.find(params[:id])
+    respond_to do |format|
+      format.atom
+    end
+  end
+
   def addToCart
     puts params[:id]
     render json: { code: 0}
