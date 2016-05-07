@@ -6,7 +6,7 @@ default :from => "Andy Li <andyli@example.com>"
   #
   #   en.notifier.order_recivied.subject
   #
-  def order_recivied
+  def order_received(order)
     @order = order
     mail to: '790372365@qq.com', subject: 'order comfirmation'
   end

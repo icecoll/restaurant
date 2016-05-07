@@ -9,12 +9,12 @@ Resturant::Application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-      :address => 'smpt.qq.com',
-      :port    => 587,
-      :domain  => 'domian.of.sender.net',
-      :authentication => 'plain',
-      :user_name => 'dave',
-      :password => 'test',
+      :address => 'smpt.163.com',
+      :port    => 25,
+      :domain  => 'www.163.com',
+      :authentication => :login,
+      :user_name => '18370992726@163.com',
+      :password => '790372365',
       :enable_starttls_auto => true
   }
 end
