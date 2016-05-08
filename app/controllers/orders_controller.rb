@@ -20,7 +20,7 @@ class OrdersController < InheritedResources::Base
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        Notifier.order_received(@order).deliver
+        Notifier.order_received(@order).deliver_now
         format.html { redirect_to(root_path, :notice =>
           '下单成功')}
       else
