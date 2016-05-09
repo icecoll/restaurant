@@ -5,3 +5,9 @@
  *= require_self
  *= require_tree .
 */
+li .badge{
+margin:0 0 0 -5px;
+font-size: 9px;
+vertical-align: super;
+padding:3px 5px;
+}
