@@ -15,8 +15,9 @@ $(function(){
         dataType: "json",
         data: {id:id},
         success: function(res){
-          if(res.code==0){
+          if(res.code==1){
             orderButtonToggle(obj);
+            $("li .badge").val=res.
           }
         }
       });
