@@ -54,6 +54,10 @@
       </div>
     </div>
 
+    <div class="col-sm-7">
+      <label class="control-label"><%= @cart.total_item_count %></label>
+    </div>
+
       <div class="form-group">
         <div class="col-sm-offset-3 col-sm-9">
           <%= button_to '立即下单', new_order_path, :method => :get %>

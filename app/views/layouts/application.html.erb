@@ -22,7 +22,7 @@
                 <li><%= link_to '外卖',delivery_index_path,class: 'nav_link'%></li>
                 <li><%= link_to '美食墙',gallery_index_path,class: 'nav_link' %></li>
                 <li><%= link_to '留言',message_index_path,class: 'nav_link' %></li>
-                <li><%= link_to raw('Cart'),cart_path(current_cart),class: 'nav_link' %></li>
+                <li><%= link_to raw(cart_badge),cart_show_path(get_current_cart),class: 'nav_link' %></li>
                 <li>
                   <% if current_user %>
                     <%= link_to "个人中心",userhome_index_path %>
