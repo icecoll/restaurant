@@ -26,4 +26,12 @@ module ApplicationHelper
     session[:cart_id] = current_cart.id
     current_cart
   end
+
+  def show_order_button(id)
+    current_cart=get_current_cart
+    if current_cart && current_cart.line_items.find(id)
+      return " <%= link_to '  移除  ','#',class: 'button order_button remove_from_cart',id: '#{f.id}',style: 'display:none'%>"
+    end
+      return "<%= link_to '加入订单','#',class: 'button order_button add_to_cart',id: '#{f.id}'%>"
+  end
 end
