@@ -14,9 +14,9 @@ class DeliveryController < ApplicationController
     @cart = current_cart
     @line_item = @cart.add_food(params[:id])
     if @line_item.save
-      render json: { code: 1, line_item_count: @cart.total_item_count}
+      render json: { state_code: 1, line_item_count: @cart.total_item_count}
     else
-      render json: { code: 0}
+      render json: { state_code: 0}
     end
   end
 

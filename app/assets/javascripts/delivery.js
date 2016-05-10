@@ -15,9 +15,9 @@ $(function(){
         dataType: "json",
         data: {id:id},
         success: function(res){
-          if(res.code==1){
+          if(res.state_code==1){
             orderButtonToggle(obj);
-            $("li .badge").val=res.
+            $(".cart_link").html("购物车<span class='badge'>"+ res.line_item_count +"</span>");
           }
         }
       });
