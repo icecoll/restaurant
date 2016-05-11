@@ -6,4 +6,5 @@ class LineItem < ActiveRecord::Base
   def total_price
     food.price * quantity
   end
+
 end
