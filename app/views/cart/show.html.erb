@@ -5,7 +5,9 @@
       <tr>
         <th><label>菜品名称</label></th>
         <th><label>单价</label></th>
-        <th><label>数量</label></th>
+        <th>
+          <label>数量</label>
+        </th>
         <th><label>总价</label></th>
       </tr>
     </thead>
@@ -14,7 +16,15 @@
           <tr>
             <td><%= li.food.name %></td>
             <td><%= number_to_currency(li.food.price, :unit=>'￥') %></td>
-            <td><%= li.quantity %></td>
+            <td>
+              <a href="#">
+                <span class="glyphicon glyphicon-minus"></span>
+              </a>
+              <%= li.quantity %>
+              <a href="#">
+                <span class="glyphicon glyphicon-plus"></span>
+              </a>
+            </td>
             <td><%= number_to_currency(li.total_price, :unit=>'￥') %></td>
           </tr>
       <% end %>

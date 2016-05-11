@@ -29,10 +29,10 @@ module ApplicationHelper
 
   def show_order_button(id)
     current_cart=get_current_cart
-    button_remove_show = link_to '  移除  ','#',class: 'button order_button remove_from_cart',id: id
-    button_add_hidden = link_to '加入购物车','#',class: 'button order_button add_to_cart',id: id,style:'display:none' 
-    button_remove_hidden =   link_to '  移除  ','#',class: 'button order_button remove_from_cart',id: id,style:'display:none'
-    button_add_show =  link_to '加入购物车','#',class: 'button order_button add_to_cart',id: id
+    button_remove_show = link_to '  移除  ','#',class: 'btn btn-default order_button remove_from_cart',id: id, onclick:'orderButtonClicked(this)'
+    button_add_hidden = link_to '加入购物车','#',class: 'btn btn-default order_button add_to_cart',id: id,style:'display:none', onclick:'orderButtonClicked(this)'
+    button_remove_hidden =   link_to '  移除  ','#',class: 'btn btn-default order_button remove_from_cart',id: id,style:'display:none', onclick:'orderButtonClicked(this)'
+    button_add_show =  link_to '加入购物车','#',class: 'btn btn-default order_button add_to_cart',id: id, onclick:'orderButtonClicked(this)'
     if current_cart.line_items
         if current_cart.contain_item?(id)
           return button_remove_show + button_add_hidden                         
