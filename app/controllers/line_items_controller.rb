@@ -22,8 +22,12 @@ class LineItemsController < InheritedResources::Base
      if line_item
          line_item.quantity +=1;
          if line_item.update(quantity:line_item.quantity)
-            render json: {state_code:1,total_line_item_count: cart.total_item_count,
-                          current_line_item_count: line_item.quantity}
+            render json: {state_code:1,
+                          total_line_item_count: cart.total_item_count,
+                          current_line_item_count: line_item.quantity,
+                          line_item_total_price: line_item.total_price,
+                          cart_total_price: cart.total_price
+                        }
          end
      else
         render json: {state_code:0}
@@ -36,16 +40,23 @@ class LineItemsController < InheritedResources::Base
       if line_item && line_item.quantity>0
         line_item.quantity-=1;
         if(line_item.quantity == 0)
-            line_item.destory
-            render json: {state_code:1,total_line_item_count: cart.total_item_count,
-                          current_line_item_count: 0}
+            line_item.destroy
+            render json: {state_code:1,
+                          total_line_item_count: cart.total_item_count,
+                          current_line_item_count: 0,
+                          cart_total_price: cart.total_price}
+            return
         else
             line_item.update(quantity: line_item.quantity)
         end
-        render json: {state_code:1,total_line_item_count: cart.total_item_count,
-                      current_line_item_count: line_item.quantity}
+        render json: {state_code:1,
+                      total_line_item_count: cart.total_item_count,
+                      current_line_item_count: line_item.quantity,
+                      line_item_total_price: line_item.total_price,
+                      cart_total_price: cart.total_price}
+        return
       else
-          render json: {state_code:0}
+        render json: {state_code:0}
       end
   end
 

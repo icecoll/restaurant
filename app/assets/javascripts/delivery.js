@@ -42,13 +42,14 @@ function adjustLineItemCount(obj,line_item_id){
     data: {line_item_id: line_item_id},
     success: function(res){
       if(res.state_code==1){
-        $("badge").html(res.total_line_item_count);
-        if(res.current_line_item_count!=0){
-            obj.siblings(".line_item_quantity").html(res.current_line_item_count);
-        }else{
-            obj.toggle();
-        }
         $(".badge").html(res.total_line_item_count);
+        if(res.current_line_item_count==0){
+          obj.parents("tr").remove();
+          return;
+        }
+        obj.parent().siblings(".line_item_quantity").html(res.current_line_item_count);
+        obj.parents("td").siblings(".line_item_total_price").html(res.line_item_total_price);
+        $('#cart_total_price').html(res.cart_total_price);
       }
     }
   });

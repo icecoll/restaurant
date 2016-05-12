@@ -15,7 +15,7 @@
       <% @cart.line_items.each do |li|%>
           <tr>
             <td><%= li.food.name %></td>
-            <td><%= number_to_currency(li.food.price, :unit=>'￥') %></td>
+            <td><%= li.food.price %></td>
             <td>
               <%= link_to '#' do %>
                   <span class='glyphicon glyphicon-minus' onclick="adjustLineItemCount(this,<%=li.id%>);"></span>
@@ -25,13 +25,16 @@
                   <span class='glyphicon glyphicon-plus' onclick="adjustLineItemCount(this,<%=li.id%>);"></span>
               <% end %>
             </td>
-            <td><%= number_to_currency(li.total_price, :unit=>'￥') %></td>
+            <td class="line_item_total_price"><%= li.total_price %></td>
           </tr>
       <% end %>
+      <tr>
+        <td colspan="3"></td>
+        <td id="cart_total_price"><%= @cart.total_price %></td>
+      </tr>
     </tbody>
   </table>
-  <%= button_to '清空购物车',@cart , :method => :delete,
-    data: { confirm: '确认清空?'} %>
+  <%= button_to '清空购物车',@cart , :method => :delete, data: { confirm: '确认清空?'} %>
   <br/>
   <br/>
   <br/>
