@@ -16,6 +16,39 @@ class LineItemsController < InheritedResources::Base
     # end
   end
 
+  def line_item_count_plus
+     cart = current_cart
+     line_item = current_cart.line_items.find(params[:line_item_id])
+     if line_item
+         line_item.quantity +=1;
+         if line_item.update(quantity:line_item.quantity)
+            render json: {state_code:1,total_line_item_count: cart.total_item_count,
+                          current_line_item_count: line_item.quantity}
+         end
+     else
+        render json: {state_code:0}
+     end
+  end
+
+  def line_item_count_minus
+      cart = current_cart
+      line_item = current_cart.line_items.find(params[:line_item_id])
+      if line_item && line_item.quantity>0
+        line_item.quantity-=1;
+        if(line_item.quantity == 0)
+            line_item.destory
+            render json: {state_code:1,total_line_item_count: cart.total_item_count,
+                          current_line_item_count: 0}
+        else
+            line_item.update(quantity: line_item.quantity)
+        end
+        render json: {state_code:1,total_line_item_count: cart.total_item_count,
+                      current_line_item_count: line_item.quantity}
+      else
+          render json: {state_code:0}
+      end
+  end
+
   private
 
     def line_item_params

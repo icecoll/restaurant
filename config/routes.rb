@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   resources :orders
-  resources :line_items
+  resources :line_items do
+      member do
+          post :line_item_count_plus
+          post :line_item_count_minus
+      end
+  end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users ,path: 'account', controllers: {

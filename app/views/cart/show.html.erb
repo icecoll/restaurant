@@ -17,13 +17,13 @@
             <td><%= li.food.name %></td>
             <td><%= number_to_currency(li.food.price, :unit=>'￥') %></td>
             <td>
-              <a href="#">
-                <span class="glyphicon glyphicon-minus"></span>
-              </a>
-              <%= li.quantity %>
-              <a href="#">
-                <span class="glyphicon glyphicon-plus"></span>
-              </a>
+              <%= link_to '#' do %>
+                  <span class='glyphicon glyphicon-minus' onclick="adjustLineItemCount(this,<%=li.id%>);"></span>
+              <% end %>
+              <span class='line_item_quantity'> <%= li.quantity %></span>
+              <%= link_to '#' do %>
+                  <span class='glyphicon glyphicon-plus' onclick="adjustLineItemCount(this,<%=li.id%>);"></span>
+              <% end %>
             </td>
             <td><%= number_to_currency(li.total_price, :unit=>'￥') %></td>
           </tr>
