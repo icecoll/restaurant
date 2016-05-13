@@ -1,4 +1,4 @@
-class AccountController < Devise::RegistrationsController
+class AccountsController < Devise::RegistrationsController
   protect_from_forgery
 
 

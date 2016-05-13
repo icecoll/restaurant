@@ -9,13 +9,20 @@ Rails.application.routes.draw do
   end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users ,path: 'account', controllers: {
-                        registrations: :account,
+  devise_for :users ,path: 'accounts', controllers: {
+                        registrations: :accounts,
                         sessions: :sessions,
                         # omniauth_callbacks: 'users/omniauth_callbacks'
                     }
 
-  get 'userhome/index'
+  resources :userhome, only: [:show] do
+      member do
+          get :orders
+          get :password
+          get :edit_info
+          post :update_info
+      end
+  end
 
   get 'gallery/index'
 

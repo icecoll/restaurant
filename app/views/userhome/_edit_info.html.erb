@@ -1,0 +1,22 @@
+<h3>Information</h3>
+<%=form_for @current_user, url: update_info_userhome_path, method: :post do |f|%>
+    <fieldset style="text-align: center">
+        <div class="field">
+            <%= f.label "nickname" %><br />
+            <%= f.text_field :nickname, autofocus: true %>
+        </div>
+
+        <div class="field">
+            <%= f.label "tel" %><br />
+            <%= f.phone_field :phone, autocomplete: "off" %>
+        </div>
+
+        <div class="field">
+            <%= f.label "address" %><br />
+            <%= f.text_field :address, autocomplete: "off" %>
+        </div>
+        <div class="field">
+            <%= f.submit %>
+        </div>
+<%end%>
+

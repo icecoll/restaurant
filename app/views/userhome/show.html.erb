@@ -1,0 +1,13 @@
+ <article>
+      <%= render @partail_name %>
+  </article>
+
+  <aside class="sidebar">
+    <h3>User center</h3>
+      <ul>
+        <li><%= link_to('Infomation',edit_info_userhome_path(current_user)) %></li>
+        <li><a href="#">orders</a></li>
+        <li><a href="#">password</a></li>
+        <li><%= link_to "Quite",destroy_user_session_path,:method =>:delete %></li>
+      </ul>
+  </aside>

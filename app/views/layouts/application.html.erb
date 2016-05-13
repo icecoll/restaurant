@@ -25,7 +25,7 @@
                 <li><%= link_to raw(cart_badge),cart_show_path(get_current_cart),class: 'nav_link cart_link' %></li>
                 <li>
                   <% if current_user %>
-                    <%= link_to "个人中心",userhome_index_path %>
+                    <%= link_to "个人中心",userhome_path(current_user) %>
                     <%= current_user.nickname%>
                   <% else %>
                     <%= link_to "注册/登录",new_user_session_path%>

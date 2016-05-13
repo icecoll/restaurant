@@ -1,17 +1,5 @@
-<div class="wrapper">
-  <div class="border"></div>
   <article>
-    <h3>个人资料</h3>
-    <div>
-      <span class="infolf">用户名</span><span class="infort">Andy Li</span>
-    </div>
-    <div>
-      <span class="infolf">电话</span><span class="infort">18370992726</span>
-    </div>
-    <div>
-      <span class="infolf">地址</span><span class="infort">江西省吉安市</span>
-    </div>
-
+      <%= render @partail_name %>
   </article>
 
   <aside class="sidebar">
@@ -23,17 +11,3 @@
         <li><%= link_to "退出",destroy_user_session_path,:method =>:delete %></li>
       </ul>
   </aside>
-  <div class="border2"></div>
-  <br>
-</div>
-<footer>
-  <span class="copyright">
-    <span class="left"><br />
-      &copy; Copyright 2015 - All Rights Reserved - <a href="#">Andy Li</a></span><span class="right"><br />
-        Design by <a href="#">Madhav Patel</a>
-        <br />
-        <br />
-        <br />
-      </span>
-  </span>
-</footer>
