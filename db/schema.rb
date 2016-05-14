@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502140837) do
+ActiveRecord::Schema.define(version: 20160514003151) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -63,9 +63,9 @@ ActiveRecord::Schema.define(version: 20160502140837) do
 
   create_table "foods", force: :cascade do |t|
     t.string   "name"
-    t.text     "description"
     t.decimal  "price"
     t.string   "image"
+    t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160502140837) do
     t.string   "pay_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "status"
   end
 
   create_table "users", force: :cascade do |t|
