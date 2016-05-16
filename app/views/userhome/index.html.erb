@@ -1,13 +1,13 @@
-  <article>
-      <%= render @partail_name %>
-  </article>
+<article>
+    <%= render @partail_name %>
+</article>
 
-  <aside class="sidebar">
-    <h3>个人中心</h3>
-      <ul>
-        <li><a href="#">我的资料</a></li>
-        <li><a href="#">我的订单</a></li>
-        <li><a href="#">修改密码</a></li>
-        <li><%= link_to "退出",destroy_user_session_path,:method =>:delete %></li>
-      </ul>
-  </aside>
+<aside class="sidebar">
+  <h3>个人中心</h3>
+    <ul>
+      <li><a href="#">我的资料</a></li>
+      <li><a href="#">我的订单</a></li>
+      <li><a href="#">修改密码</a></li>
+      <li><%= link_to "退出",destroy_user_session_path,:method =>:delete %></li>
+    </ul>
+</aside>

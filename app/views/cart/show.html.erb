@@ -1,5 +1,6 @@
 
 <article style="text-align: center">
+  <%if @cart.line_items.length > 0 %>
   <table class="table">
     <thead>
       <tr>
@@ -17,11 +18,11 @@
             <td><%= li.food.name %></td>
             <td><%= li.food.price %></td>
             <td>
-              <%= link_to '#' do %>
+              <%= link_to 'javascript:;' do %>
                   <span class='glyphicon glyphicon-minus' onclick="adjustLineItemCount(this,<%=li.id%>);"></span>
               <% end %>
               <span class='line_item_quantity'> <%= li.quantity %></span>
-              <%= link_to '#' do %>
+              <%= link_to 'javascript:;' do %>
                   <span class='glyphicon glyphicon-plus' onclick="adjustLineItemCount(this,<%=li.id%>);"></span>
               <% end %>
             </td>
@@ -42,41 +43,19 @@
   <div style="text-align: center">
     <%= render 'form' %>
   </div>
-
+  <% else %>
+    <h5>购物车是空的,请前往<%= link_to '这里',delivery_index_path %>添加!</h5  >
+  <% end %>
 </article>
 
 <aside class="sidebar">
-
-  <form class="form-horizontal">
-      <div class="form-group">
-        <label class="col-sm-5 control-label">送餐地址</label>
-        <div class="col-sm-7">
-          <label class="control-label">××××××××××××××××××××××××</label>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-5 control-label">支付方式</label>
-        <div class="col-sm-7">
-          <label class="control-label">餐到支付</label>
-        </div>
-      </div>
-    <div class="form-group">
-      <label class="col-sm-5 control-label">总计</label>
-      <div class="col-sm-7">
-        <label class="control-label"><%= number_to_currency(@cart.total_price, :unit=>'￥') %></label>
-      </div>
-    </div>
-
-    <div class="col-sm-7">
-      <label class="control-label"><%= @cart.total_item_count %></label>
-    </div>
-
-      <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-9">
-          <%= button_to '立即下单', new_order_path, :method => :get %>
-        </div>
-      </div>
-  </form>
+  <h3>活动公告</h3>
+  饭点较忙，电话常占线，本店优先配送网上订单。2、首次订餐用户，会跟您进行验证码确认，请确保您的电话号码正确及电话畅通，以便送餐员能及时联系上您3、外卖制作+配送都需要消耗时间，为了能及时用餐，希望大家提前半小时以上预定，避开高峰拥堵。投诉、意见、反馈热线：1*********
+  <div class="border3"></div>
+  <h3>广告位置</h3>
+  <%= image_tag "home/1.jpg", size:"280" %>
+  <p><strong>广告位</strong> 广而告之  广告<br>
+    <a href="" class="right" style="padding-top:7px"><strong>友情链接 &raquo;</strong></a></p>
 </aside>
 <br/>
 <br/>

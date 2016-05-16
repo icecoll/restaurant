@@ -26,13 +26,14 @@
                 <li>
                   <% if current_user %>
                     <%= link_to "个人中心",userhome_path(current_user) %>
-                    <%= current_user.nickname%>
                   <% else %>
                     <%= link_to "注册/登录",new_user_session_path%>
                   <% end %>
                 </li>
               </ul>
             </nav>
+
+            <%= notice_message %>
             <hgroup class="intro">
               <h1 class="title">Andy's restaurant</h1>
               <h3 class="tagline">welcome</h3>

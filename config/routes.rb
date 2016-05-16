@@ -18,9 +18,10 @@ Rails.application.routes.draw do
   resources :userhome, only: [:show] do
       member do
           get :orders
-          get :password
           get :edit_info
           post :update_info
+          get :password
+          patch :update_password
       end
   end
 

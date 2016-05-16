@@ -1,18 +1,18 @@
 <h3>我的订单</h3>
-<table>
+<table class="table">
   <thead>
   <tr>
-    <th>姓名</th>
-    <th>地址</th>
-    <th>电话</th>
-    <th>支付方式</th>
-    <th>下单时间</th>
-    <th>订单状态</th>
+    <th><label>姓名</label></th>
+    <th><label>地址</label></th>
+    <th><label>电话</label></th>
+    <th><label>支付方式</label></th>
+    <th><label>下单时间</label></th>
+    <th><label>订单状态</label></th>
   </tr>
   </thead>
 
   <tbody>
-  <% @orders.each do |order| %>
+  <% current_user.orders.each do |order| %>
       <tr>
         <td><%= order.name %></td>
         <td><%= order.address %></td>

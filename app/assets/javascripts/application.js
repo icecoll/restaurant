@@ -16,3 +16,6 @@
 //= require turbolinks
 //= require delivery
 
+function closeAlert(obj){
+    $(obj).parent().remove();
+}
