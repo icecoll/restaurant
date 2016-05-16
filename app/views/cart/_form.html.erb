@@ -27,6 +27,7 @@
     <%= f.label '支付方式' %><br>
     <%= f.select :pay_type, Order::PAYMENT_TYPE %>
   </div>
+    <input type="hidden" value="<%=current_user.id%>" name="user[id]" >
   <div class="actions">
     <%= f.submit '立即下单' %>
   </div>

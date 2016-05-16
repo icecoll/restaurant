@@ -26,6 +26,7 @@ class UserhomeController < ApplicationController
   
   def orders
       @partail_name = 'orders'
+
       render action: :show
   end
 

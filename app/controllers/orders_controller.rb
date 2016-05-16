@@ -19,6 +19,8 @@ class OrdersController < InheritedResources::Base
     respond_to do |format|
       if @order.save
         Cart.destroy(session[:cart_id])
+        current_user = User.find_by(user_params)
+        current_user.add_order_2_User(@order)
         session[:cart_id] = nil
         Notifier.order_received(@order).deliver_now
         format.html { redirect_to(root_path, :notice =>
@@ -26,15 +28,19 @@ class OrdersController < InheritedResources::Base
       else
         format.html {render :action => 'new'}
       end
-
     end
 
   end
 
   private
 
-    def order_params
-      params.require(:order).permit(:name, :address, :phone, :pay_type)
-    end
+  def order_params
+    params.require(:order).permit(:name, :address, :phone, :pay_type )
+  end
+
+  def user_params
+    params.require(:user).permit(:id)
+  end
+
 end
 

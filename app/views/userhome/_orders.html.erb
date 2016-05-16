@@ -1,0 +1,26 @@
+<h3>我的订单</h3>
+<table>
+  <thead>
+  <tr>
+    <th>姓名</th>
+    <th>地址</th>
+    <th>电话</th>
+    <th>支付方式</th>
+    <th>下单时间</th>
+    <th>订单状态</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.name %></td>
+        <td><%= order.address %></td>
+        <td><%= order.phone %></td>
+        <td><%= order.pay_type %></td>
+        <td><%= order.created_at %></td>
+        <td><%= order.status %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

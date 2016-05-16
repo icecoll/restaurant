@@ -1,7 +1,9 @@
 class Order < ActiveRecord::Base
- has_many :line_items, :dependent => :destroy
+  has_many :line_items, :dependent => :destroy
+  belongs_to :user
 
-  PAYMENT_TYPE = ['餐到支付','支付宝支付']
+  PAYMENT_TYPE = %w{餐到支付 支付宝支付}
+  ORDER_STATUS = %w{已下单 已接单 配送中 完成}
   validates :name, :pay_type, :address, :phone, :presence => true
   validates :pay_type, :inclusion => PAYMENT_TYPE
 

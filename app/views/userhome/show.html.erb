@@ -3,11 +3,11 @@
   </article>
 
   <aside class="sidebar">
-    <h3>User center</h3>
+    <h3>个人中心</h3>
       <ul>
-        <li><%= link_to('Infomation',edit_info_userhome_path(current_user)) %></li>
-        <li><a href="#">orders</a></li>
-        <li><a href="#">password</a></li>
-        <li><%= link_to "Quite",destroy_user_session_path,:method =>:delete %></li>
+        <li><%= link_to('修改信息',edit_info_userhome_path(current_user)) %></li>
+        <li><a href="#">我的订单</a></li>
+        <li><a href="#">修改密码</a></li>
+        <li><%= link_to "退出",destroy_user_session_path,:method =>:delete %></li>
       </ul>
   </aside>
