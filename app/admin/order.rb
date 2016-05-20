@@ -1,52 +1,49 @@
-  ActiveAdmin.register Order do
+ActiveAdmin.register Order do
+  menu priority: 2, label: '订单'
+  permit_params :name,:address,:phone,:pay_type, :status, :line_items
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:permitted, :attributes]
-  #   permitted << :other if resource.something?
-  #   permitted
-  # end
-  menu :priority => 3, :label => "订单"
-
-  permit_params :name,:address,:phone,:pay_type, :line_items
-
-=begin
-  index :as => :grid do |menu|
-    div do
-      a :href => admin_menu_path(menu) do
-        image_tag("products/" + menu.image)
+  index do
+    id_column
+    column '顾客名称', :name
+    column '配送地址', :address
+    column '联系电话', :phone
+    column '支付方式', :pay_type
+    column '下单时间', :created_at
+    column '订单状态', :status
+    actions do |order|
+      case order.status
+          when Order::ORDER_STATUS[0] #order.status == '已下单' ?
+            link_to '接受订单', accept_admin_order_path(order.id), method: :post
+          when Order::ORDER_STATUS[1] #order.status == '已接单' ?
+            link_to '开始配送', delivery_admin_order_path(order.id), method: :post
+          when Order::ORDER_STATUS[2] #order.status == '配送中' ?
+            link_to '完成订单', complete_admin_order_path(order.id), method: :post
       end
     end
-    a truncate(menu.name), :href => admin_menu_path(menu)
   end
-=end
-=begin
 
-  show :title => ""
-
-  sidebar :product_stats, :only => :show do
-    attributes_table_for resource do
-      row("Total Sold")  { Order.find_with_product(resource).count }
-      row("Dollar Value"){ number_to_currency LineItem.where(:product_id => resource.id).sum(:price) }
+  member_action :accept, method: :post do
+    order = Order.find(params[:id])
+    if order
+      order.update(status: Order::ORDER_STATUS[1])#order.status == '已接单'
+      redirect_to admin_orders_path
     end
   end
 
-  sidebar :recent_orders, :only => :show do
-    Order.find_with_product(resource).limit(5).collect do |order|
-      auto_link(order)
-    end.join(content_tag("br")).html_safe
+  member_action :delivery, method: :post do
+    order = Order.find(params[:id])
+    if order
+      order.update(status: Order::ORDER_STATUS[2])#order.status == '配送中'
+      redirect_to admin_orders_path
+    end
   end
 
-  sidebar "Active Admin Demo" do
-    render('/admin/sidebar_links', :model => 'products')
+  member_action :complete, method: :post do
+    order = Order.find(params[:id])
+    if order
+      order.update(status: Order::ORDER_STATUS[3])#order.status == '已完成'
+      redirect_to admin_orders_path
+    end
   end
-=end
-
 
 end

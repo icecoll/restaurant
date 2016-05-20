@@ -29,7 +29,6 @@ class OrdersController < InheritedResources::Base
         format.html {render :action => 'new'}
       end
     end
-
   end
 
   private

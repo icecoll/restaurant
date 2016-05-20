@@ -1,6 +1,6 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
-en:
+zh-CN:
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
@@ -10,7 +10,7 @@ en:
       already_authenticated: "您已经登录过."
       inactive: "您的账户未激活."
       invalid: "登录名或密码有误"
-      locked: "Your account is locked."
+      locked: "您的账户已被锁定."
       last_attempt: "You have one more attempt before your account is locked."
       not_found_in_database: "登录名或密码有误."
       timeout: "Your session expired. Please sign in again to continue."
@@ -44,8 +44,8 @@ en:
       updated: "信息更新成功!"
     sessions:
       signed_in: "登录成功!"
-      signed_out: "退出成功!"
-      already_signed_out: "Signed out successfully."
+      signed_out: "注销成功!"
+      already_signed_out: "注销成功."
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
