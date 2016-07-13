@@ -19,3 +19,4 @@
 #Ignore all the configuration files of rubymine
 /.idea/*
 /config/environment.rb
+*.yml

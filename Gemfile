@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5.2'
+gem 'rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -27,7 +27,7 @@ gem "omniauth"
 gem 'omniauth-github'
 
 #gem for active_adimi
-gem 'activeadmin', '~> 1.0.0.pre2'
+gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'carrierwave'
 gem "rmagick"
 
@@ -59,6 +59,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'rspec-rails'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
