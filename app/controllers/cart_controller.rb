@@ -12,6 +12,7 @@ class CartController < ApplicationController
       @order = Order.new
       respond_to do |format|
         format.html # show.html.erb
+        format.json { render json: @order }
       end
     end
   end

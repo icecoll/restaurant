@@ -31,6 +31,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'carrierwave'
 gem "rmagick"
 
+gem 'active_model_serializers', '~> 0.10.0'
 
 
 # Use jquery as the JavaScript library
